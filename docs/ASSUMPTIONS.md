@@ -10,7 +10,7 @@ A result of this project is valid only inside the ranges below. Where a value is
 |---|---|---|---|
 | K | µm of metaphase chromosome per Mb | 0.015, 0.03, 0.05 | 0.015 **cited**, with limits (below); 0.03 and 0.05 **assumption**. 0.05 is the earlier simulator's value (chromosome 1 ≈ 8 µm) |
 | F | how many times the block the C-band looks (pericentromere included) | 1, 1.5, 2.5 | **assumption**. No measurement of goat C-bands was found. 2.5 is the earlier simulator's value |
-| Optical resolution | smallest band, or difference between bands, that can be told apart | 0.1, 0.25, 0.4 µm | 0.25 is the author's approximation from Abbe's limit (about 0.6 λ / NA); **assumption** until checked against C-banding practice |
+| Optical resolution | smallest band, or difference between bands, that can be told apart | 0.1, 0.25, 0.4 µm | 0.25 µm is a rough value from Abbe's formula (0.61 λ / NA, with λ = 550 nm and NA = 1.4, which gives about 0.24 µm), computed by the AI assistant and not checked against C-banding practice; **assumption** |
 | Measurement error of the C-band | multiplicative | 10, 20, 30 % | **inherited** |
 | Metaphases per animal | | 10, 20 | **inherited**; about 20 is the figure reported in classic C-band heteromorphism work (to be confirmed with the exact reference) |
 | Heteromorphism spread | sigma of the true difference between homologs | 0.40 (IMCG-like) and 0.17 (Kiko x Saanen-like) | **from data** (firm pairs of stage 2). The earlier moderate fixed value (0.12) is no longer used |

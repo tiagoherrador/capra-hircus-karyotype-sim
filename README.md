@@ -34,7 +34,7 @@ It is a question about experimental design, answered by simulation. It is split 
 
 ## The main caution
 
-The optical limit of a light microscope is about 0.25 µm (the author's approximation, to be treated as a parameter). Under some of the assumptions used here, the typical difference between two homologs is near or below that limit. For that reason the optical resolution, the chromosome scale (K, µm per Mb) and the band-to-block factor (F) are varied explicitly, and no goat-specific value exists for K or F ([assumptions](docs/ASSUMPTIONS.md)).
+The optical limit of a light microscope is about 0.25 µm (a rough value from Abbe's formula, 0.61 λ / NA, with λ = 550 nm and NA = 1.4; it was not checked against C-banding practice and is treated as a parameter). Under some of the assumptions used here, the typical difference between two homologs is near or below that limit. For that reason the optical resolution, the chromosome scale (K, µm per Mb) and the band-to-block factor (F) are varied explicitly, and no goat-specific value exists for K or F ([assumptions](docs/ASSUMPTIONS.md)).
 
 ## Inputs
 
