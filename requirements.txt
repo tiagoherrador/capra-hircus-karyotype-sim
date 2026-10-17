@@ -1,0 +1,10 @@
+# Python environment (same pins as the sequence repo). No external tools are needed.
+pandas==3.0.6
+numpy==2.5.4
+scipy==1.18.1
+statsmodels==0.15.0
+matplotlib==3.11.2
+ipykernel==7.4.0
+jupyterlab==4.6.4
+nbclient==0.11.0
+nbformat==5.11.1
