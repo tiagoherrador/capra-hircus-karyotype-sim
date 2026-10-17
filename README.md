@@ -29,7 +29,7 @@ It is a question about experimental design, answered by simulation. It is split 
 
 - It does not predict which C-band a real goat would show. There are no public cytogenetic measurements of this animal.
 - It does not measure the functional centromere (CENP-A). The "centromere" is the satellite block of the sequence repository, an operational definition. The functional domain may be much more stable between haplotypes than the satellite array, so a large difference in the array does not imply one in the functional centromere.
-- The goat is acrocentric in all autosomes and in the X, so centromeric index and arm ratio carry almost no information. They get one table and one sentence.
+- It does not tell whether the goat chromosomes are acrocentric or telocentric. The literature calls them acrocentric (a very short arm). The sequence only shows that the satellite block starts less than 0.05 Mb from the end of every autosome, so there is no resolvable euchromatic short arm. The centromere position inside the block is not measured, so the centromeric index, the arm ratio and the Levan class are given as "if the centromere is at the middle of the block", an assumption. The X is the one case with a real short arm.
 - Sensitivity, specificity and power describe the simulated design under the stated assumptions, not the real world.
 
 ## The main caution
@@ -46,10 +46,10 @@ All three stages are done and executed. Not yet done: a check of K, F and the op
 
 ![Idiogram of T2T-goat2.0](figures/idiogram_T2T.png)
 
-*Idiogram of the 30 chromosomes of T2T-goat2.0 (ordered by size, X in red): the shaded part is the satellite block, the operational centromere. It marks where heterochromatin could be, not a prediction of a real band.*
+*Idiogram of the 30 chromosomes of T2T-goat2.0 (ordered by size, X in red). The shaded part is the satellite block (the operational centromere); the white mark is the assumed centromere, placed at the middle of the block because the sequence does not locate it. The inset shows the first 15 Mb of CHI1 and of the X: the block of an autosome starts at the chromosome end, while the X has a euchromatic short arm of about 7 Mb. It is a map of where heterochromatin could be, not a prediction of a real band.*
 
 Stage 1, from the frozen tables (`data/outputs/karyotype_inferred.csv`, `expected_heteromorphisms.csv`):
-- All 29 autosomes and the X are terminal (acrocentric) in every haplotype (arm ratio above 10). The X is the only chromosome with a real short arm: its satellite block starts 7.2 Mb from the end, and its centromeric index is 0.053.
+- In all 29 autosomes of every haplotype the satellite block starts less than 0.05 Mb from the end of the chromosome, so there is no resolvable euchromatic short arm. With the centromere assumed at the middle of the block the arm ratio is above 10 and the Levan class is "terminal", which is compatible with both acrocentric and telocentric; the position of the centromere inside the block is not measured. The X is the only chromosome with a real short arm: about 7 Mb of euchromatin (the pseudoautosomal region) before its block, which starts 7.2 Mb from the end.
 - Expected heteromorphism, as the median |ln ratio| of the block between the two homologs: 0.37 in IMCG P/M (16 usable pairs) and 0.17 in KikoP/SaanenM (29 usable pairs, labelled "between breeds"). In the rest of the chromosome the same measure is about 0.001-0.002.
 - The IMCG pairs are few because 13 of the 29 are incomplete or `low_satellite` in at least one haplotype.
 

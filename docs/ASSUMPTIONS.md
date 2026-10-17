@@ -23,6 +23,10 @@ A 2025 volume electron microscopy study of human RPE1 cells ([J Cell Biol 223:e2
 
 Goat karyotype papers describe the C-band as centromeric, or at the proximal part of the long arm, in all autosomes, without measuring its size. The X and Y are described as C-negative in one study. F is therefore not constrained.
 
+## Position of the centromere inside the block
+
+The sequence gives the satellite block, not the functional centromere (CENP-A), which can be anywhere inside a block of 1-10 Mb. The karyotype table and the idiogram place the centromere at the **middle of the block**. This is an **assumption** and it matters only for the centromeric index, the arm ratio, the Levan class and the white mark of the idiogram (`levan_if_block_mid`); the heteromorphism and simulation results use block lengths and do not depend on it. The measured fact is that the autosomal blocks start less than 0.05 Mb from the chromosome end. Whether the chromosomes are then called acrocentric or telocentric depends on this assumption and cannot be settled from the sequence.
+
 ## Fixed assumptions
 
 These stay fixed in every scenario and are listed so they can be challenged. Each is an assumption with no data behind it unless said otherwise.

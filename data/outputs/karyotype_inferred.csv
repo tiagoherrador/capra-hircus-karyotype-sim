@@ -1,4 +1,4 @@
-hap,chr,kind,length_Mb,rel_length_pct,rank_by_size,side,cen_len_Mb,p_to_start_Mb,p_Mb,CI,arm_ratio,levan,complete,low_satellite,excluded,doubtful
+hap,chr,kind,length_Mb,rel_length_pct,rank_by_size,side,cen_len_Mb,p_to_start_Mb,p_Mb,CI,arm_ratio,levan_if_block_mid,complete,low_satellite,excluded,doubtful
 T2T,CHI1,autosome,166.5287,6.1716,1,L,9.1641,0.0272,4.6092,0.0277,35.1292,t,True,False,False,False
 T2T,CHI2,autosome,147.5558,5.4684,2,L,10.2261,0.0316,5.1447,0.0349,27.6814,t,True,False,False,False
 T2T,CHI3,autosome,132.6698,4.9167,4,L,8.8481,0.0333,4.4574,0.0336,28.7643,t,True,False,False,False
