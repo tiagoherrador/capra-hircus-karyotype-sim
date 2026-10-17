@@ -13,7 +13,7 @@ A result of this project is valid only inside the ranges below. Where a value is
 | Optical resolution | smallest band, or difference between bands, that can be told apart | 0.1, 0.25, 0.4 µm | 0.25 is the author's approximation from Abbe's limit (about 0.6 λ / NA); **assumption** until checked against C-banding practice |
 | Measurement error of the C-band | multiplicative | 10, 20, 30 % | **inherited** |
 | Metaphases per animal | | 10, 20 | **inherited**; about 20 is the figure reported in classic C-band heteromorphism work (to be confirmed with the exact reference) |
-| Heteromorphism rate | spread of the true difference between homologs | from the sequence tables, and a moderate fixed value (0.12) | **from data** for the first; the second **inherited** |
+| Heteromorphism spread | sigma of the true difference between homologs | 0.40 (IMCG-like) and 0.17 (Kiko x Saanen-like) | **from data** (firm pairs of stage 2). The earlier moderate fixed value (0.12) is no longer used |
 
 ### About K
 
@@ -57,6 +57,7 @@ Kept as they were, listed so they can be challenged. Each is an assumption with 
 
 ## Known limits of the setup
 
-- The correlation between band and sequence has a ceiling by construction (the earlier run gave 0.49). It reports the design, not a failure of the method.
+- Sensitivity has a ceiling by construction: the calling threshold per metaphase (0.25) is above the definition of a true heteromorphism (0.18). The ceiling is 0.88 (IMCG-like) and 0.67 (Kiko x Saanen-like), and the analysis reports sensitivity against it.
+- The correlation between band and sequence has a ceiling by construction (the earlier run gave 0.49; this one gives about 0.32, see the README). It reports the design, not a failure of the method.
 - Ground truth, error and detection all come from one model. Agreement between them says the code is consistent, not that goat cytogenetics behaves like this.
 - Breed and individual are mixed in the Kiko × Saanen animal, so differences between its haplotypes are labelled "between breeds".
