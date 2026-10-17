@@ -42,7 +42,7 @@ Frozen copies of six small tables from the sequence repository live in `data/inp
 
 ## Status
 
-Stages 1 (inference) and 2 (robustness) are done and executed; stage 3 (simulation) is a heading only.
+All three stages are done and executed. Not yet done: a README-level summary figure, and a check of K, F and the optical limit against goat cytogenetic measurements, which would need real data.
 
 Stage 1, from the frozen tables (`data/outputs/karyotype_inferred.csv`, `expected_heteromorphisms.csv`):
 - All 29 autosomes and the X are terminal (acrocentric) in every haplotype (arm ratio above 10). The X is the only chromosome with a real short arm: its satellite block starts 7.2 Mb from the end, and its centromeric index is 0.053.
@@ -52,7 +52,17 @@ Stage 1, from the frozen tables (`data/outputs/karyotype_inferred.csv`, `expecte
 Stage 2 (`data/outputs/robustness_pairs.csv`, `robustness_scenarios.csv`): each usable pair is labelled **firm** or **doubtful** (a doubtful block, or the block length and the satellite-only length disagree by more than 0.2 in |ln ratio|, or the larger haplotype flips).
 - IMCG P/M: 15 firm and 1 doubtful. The difference is in the satellite, not in the spacer (Spearman 0.88 between the two measures; the larger haplotype never changes). The median |ln ratio| is 0.37 with the block and 0.37 with the satellite only.
 - KikoP/SaanenM: 19 firm and 10 doubtful. The two measures agree much less (Spearman 0.49), and with the satellite only the median difference is larger (0.27 against 0.17), so the non-satellite spacer partly hides differences. Removing the three doubtful blocks barely moves the block-length median (0.16).
-- Consequence for stage 3: the ground truth takes the 34 firm pairs; the doubtful ones enter only in a sensitivity scenario. The "size class" of a pair near a class boundary is not stable, so it is not used as a truth label.
+- Consequence for stage 3: the spread of the true difference comes from the 34 firm pairs; the doubtful ones enter only in a sensitivity run. The "size class" of a pair near a class boundary is not stable, so it is not used as a truth label.
+
+Stage 3 (`data/outputs/sim_*.csv`, figures `sim_power_curves.png` and `sim_sensitivity_specificity.png`): the earlier simulator, run on 324 scenarios x 300 replicates (K, F, optical resolution, error, metaphases, and the two heteromorphism spreads). Everything below is simulated.
+- **Resolution and band size decide it; error and number of metaphases barely do.** The median sensitivity goes from 0.44 to 0.46 between 10 and 20 metaphases, and from 0.46 to 0.42 between 10 % and 30 % error. It goes from 0.77 to 0.48 to 0.22 as the resolution goes from 0.1 to 0.25 to 0.4 µm (IMCG-like).
+- **IMCG-like differences** (sigma 0.40): sensitivity of at least 0.8 with specificity of at least 0.9 in 20 of 162 scenarios. Nearly all are at 0.1 µm resolution with 10-20 % error. At 0.25 µm only the largest bands do it (K x F = 0.125), and at 0.4 µm none.
+- **Kiko x Saanen-like differences** (sigma 0.17): none of 162 scenarios reaches 0.8; the best is 0.64. Differences of that size are not detectable with this criterion in any scenario.
+- **Specificity** stays between 0.83 and 1.00 everywhere. Sensitivity cannot exceed about 0.85, because the calling threshold per metaphase (0.25) is above the definition of a true heteromorphism (0.18).
+- **Bands that cannot be measured** are the main loss. In the middle scenario (K 0.03, F 1.5, 0.25 µm, 20 % error, 20 metaphases) only 62-65 % of the bands are measurable, with sensitivity 0.50 (IMCG-like) and 0.28 (Kiko x Saanen-like), specificity 0.94-0.95.
+- **Concordance with the sequence** (Spearman across the 30 chromosomes): the C-band reaches a median of 0.29 against a ceiling of 0.32; FISH reaches 0.56 for SatI, 0.43 for SatII and 0.63 for SatIII (this depends on the assumed probe gains). The ceiling is lower than the earlier 0.49 because the block lengths of T2T correlate only 0.33 with the four-haplotype consensus: the rank of the blocks is not well conserved between animals.
+- **The slope** of the C-band against remaining length has a bias between -0.20 and +0.27 depending on the scenario, so it is not interpreted here.
+- **The ground truth matters little.** Removing the doubtful blocks and taking the spread from all usable pairs moves sensitivity by at most 0.02 and specificity by less than 0.01 in the middle scenario (`sim_sensitivity_truth.csv`).
 
 ## Repository structure
 
@@ -73,7 +83,7 @@ pip install -r requirements.txt
 jupyter lab notebooks/01_karyotype_and_simulation.ipynb
 ```
 
-No downloads and no external tools are needed.
+No downloads and no external tools are needed. The full run takes about 2.5 minutes on an Apple-silicon laptop (324 scenarios x 300 replicates). For a quick test: `CAPRA_NREP=20 jupyter lab ...` (set the variable before starting Jupyter).
 
 ## Licence
 

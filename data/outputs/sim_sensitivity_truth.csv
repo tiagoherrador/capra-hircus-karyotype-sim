@@ -1,0 +1,5 @@
+variant,het,measurable,sens,spec,rho_band,slope_bias
+"base (all usable blocks, sigma from firm pairs)",IMCG-like,0.617,0.499,0.945,0.269,0.127
+"base (all usable blocks, sigma from firm pairs)",Kiko x Saanen-like,0.65,0.286,0.949,0.317,0.153
+"without doubtful blocks, sigma from all usable pairs",IMCG-like,0.611,0.485,0.946,0.343,0.137
+"without doubtful blocks, sigma from all usable pairs",Kiko x Saanen-like,0.641,0.272,0.947,0.389,0.16

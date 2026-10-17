@@ -32,8 +32,8 @@ Kept as they were, listed so they can be challenged. Each is an assumption with 
 | Animals | 6 females | design of the original project; the sequence data are from a male and a female F1 |
 | Condensation per metaphase | σ = 0.10 | common to all chromosomes of a cell |
 | Error of chromosome length | σ = 0.05 | multiplicative |
-| Absolute error of the C-band | 0.03 µm | **to be replaced** by a value tied to the optical resolution |
-| Minimum measurable band | 0.05 µm | **to be replaced** by the optical resolution; at 0.05 µm about 93 % of simulated bands were "measurable", which is optimistic |
+| Absolute error of the C-band | one third of the optical resolution | **assumption**; replaces the fixed 0.03 µm, which equals this rule at a resolution of 0.1 µm |
+| Minimum measurable band | the optical resolution | **assumption**; replaces the fixed 0.05 µm, at which about 93 % of simulated bands were "measurable", which was optimistic |
 | Variation between animals | σ = 0.10 (centromere), 0.02 (rest) | assumption |
 | Composition variation between homologs | σ = 0.08 | assumption |
 | FISH gain per probe | SatI 1.0, SatII 1.4, SatIII 3.0 | assumption |
@@ -51,7 +51,8 @@ Kept as they were, listed so they can be challenged. Each is an assumption with 
 - Only blocks that are `complete` and not `low_satellite`.
 - Excluded: M-CHI7, M-CHI9, M-CHI29 (very little satellite, probably missing sequence) and Saanen CHI5 (gap, block cut by the search window).
 - Doubtful, kept but marked: Kiko CHI14 and Saanen CHI7 and CHI15 (large SatI expansions of uncertain origin: real, or duplicated by the assembler). A sensitivity scenario removes them.
-- The spread of the true difference between homologs is estimated with a robust scale (MAD) from both animals together, not from one pair. The P–M pair alone was used before, and it may include assembly artefacts.
+- The base length of each block is the geometric mean over the usable haplotypes of the four (T2T is the collapsed assembly of the IMCG animal, so it is not averaged in; it is the fallback if no haplotype is usable).
+- The spread of the true difference between homologs is estimated per animal from the **firm** pairs of stage 2, as median(|ln ratio|) / 0.6745 / sqrt(2): sigma = 0.40 for the IMCG-like scenario (15 pairs) and 0.17 for the Kiko x Saanen-like one (19 pairs), and it is assumed log-normal. The IMCG pairs have a heavy tail (CHI21 at 2.5, CHI12 at 1.4) that a log-normal with this sigma understates. Using all usable pairs instead gives 0.39 and 0.17. The P–M pair alone was used before, and it may include assembly artefacts.
 - The block length is the operational "centromere" of the sequence repository. It includes 15–55 % of non-satellite sequence. The satellite-only version (`sat_bp`) is available as an alternative truth.
 
 ## Known limits of the setup
