@@ -1,8 +1,8 @@
 # Frozen inputs from the sequence repository
 
 These six files are copies of tables from my sequence repository,
-[capra-hircus-centromeres](https://github.com/tiagoherrador/capra-hircus-centromeres) (private). I copied them at commit
-`423ade065276c7dce19f94a849345081dde908eb` (2026-10-16) and I don't recompute anything here. Before reading them, the notebook
+[capra-hircus-centromeres](https://github.com/tiagoherrador/capra-hircus-centromeres). I copied them at commit
+`764ce93511bb674a16f248848f766b21baf390f4` (2026-10-16) and I don't recompute anything here. Before reading them, the notebook
 checks the SHA-256 of each file against the list at the bottom of this page.
 
 | Copy here | Original path in the sequence repository |

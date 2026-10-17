@@ -5,7 +5,7 @@
 
 ## What this project is
 
-In my companion repository, [capra-hircus-centromeres](https://github.com/tiagoherrador/capra-hircus-centromeres) (private), I measured the satellite DNA blocks at goat centromeres using public genome assemblies. One thing stood out: the two copies of a chromosome often differ a lot in that block. Here I take those tables as they are and ask a simple question: if those differences were real, could a microscope see them? I don't repeat any of the sequence work here (downloads, satellite annotation, scaling statistics). It all lives in the other repository.
+In my companion repository, [capra-hircus-centromeres](https://github.com/tiagoherrador/capra-hircus-centromeres), I measured the satellite DNA blocks at goat centromeres using public genome assemblies. One thing stood out: the two copies of a chromosome often differ a lot in that block. Here I take those tables as they are and ask a simple question: if those differences were real, could a microscope see them? I don't repeat any of the sequence work here (downloads, satellite annotation, scaling statistics). It all lives in the other repository.
 
 > If the differences between the two copies of a chromosome that I see in the sequence were real, could a cytogenetic design (C-banding or FISH) detect them? With how many cells, and with what measurement quality?
 
