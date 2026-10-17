@@ -42,7 +42,12 @@ Frozen copies of six small tables from the sequence repository live in `data/inp
 
 ## Status
 
-Skeleton. The structure, licences and assumptions are in place; the notebook has its three stages as headings and no code yet.
+Stage 1 (inference) is done and executed; stages 2 (robustness) and 3 (simulation) are headings only.
+
+Stage 1, from the frozen tables (`data/outputs/karyotype_inferred.csv`, `expected_heteromorphisms.csv`):
+- All 29 autosomes and the X are terminal (acrocentric) in every haplotype (arm ratio above 10). The X is the only chromosome with a real short arm: its satellite block starts 7.2 Mb from the end, and its centromeric index is 0.053.
+- Expected heteromorphism, as the median |ln ratio| of the block between the two homologs: 0.37 in IMCG P/M (16 usable pairs) and 0.17 in KikoP/SaanenM (29 usable pairs, labelled "between breeds"). In the rest of the chromosome the same measure is about 0.001-0.002.
+- The IMCG pairs are few because 13 of the 29 are incomplete or `low_satellite` in at least one haplotype.
 
 ## Repository structure
 
