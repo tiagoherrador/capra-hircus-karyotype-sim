@@ -1,7 +1,7 @@
 # Karyotype inference and simulated C-banding/FISH for *Capra hircus*
 ### What would a microscope see of the centromere differences I found in the goat genome?
 
-> This is a personal portfolio and practice project, not a peer-reviewed article. Every cytogenetic measurement in it is simulated. I built it with the help of an AI coding assistant (Claude Code), and I reviewed the decisions and the results.
+> **Personal research project, not peer reviewed.** Every cytogenetic measurement in it is simulated.
 
 ## What this project is
 
@@ -96,7 +96,7 @@ I don't settle whether the goat chromosomes are acrocentric or telocentric eithe
 
 Finally, sensitivity, specificity and power describe the simulated design under the assumptions I state. They are not statements about the real world.
 
-**The main caution: the optical limit.** I take the optical limit of a light microscope to be about 0.25 µm. That is a rough figure from Abbe's formula (0.61 λ / NA, with λ = 550 nm and NA = 1.4), calculated by the AI assistant. I haven't checked it against real C-banding practice, so I treat it as a parameter. Under some of my assumptions the typical difference between two copies of a chromosome is close to that limit or below it. That is why I vary the optical resolution explicitly, together with the chromosome scale (K, µm of chromosome per Mb) and the band-to-block factor (F, how many times the block the band looks). I found no goat-specific value for K or F ([assumptions](docs/ASSUMPTIONS.md)).
+**The main caution: the optical limit.** I take the optical limit of a light microscope to be about 0.25 µm. That is a rough figure from the Rayleigh criterion (0.61 λ / NA), which gives about 0.24 µm for green light (λ = 550 nm) and an oil-immersion objective (NA = 1.4). I haven't checked it against real C-banding practice, so I treat it as a parameter. Under some of my assumptions the typical difference between two copies of a chromosome is close to that limit or below it. That is why I vary the optical resolution explicitly, together with the chromosome scale (K, µm of chromosome per Mb) and the band-to-block factor (F, how many times the block the band looks). I found no goat-specific value for K or F ([assumptions](docs/ASSUMPTIONS.md)).
 
 ## Try it yourself
 
