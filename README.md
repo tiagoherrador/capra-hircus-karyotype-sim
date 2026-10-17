@@ -21,7 +21,7 @@ It is a question about experimental design, answered by simulation. It is split 
 
 1. An inferred karyotype table and an idiogram, with explicit inclusion criteria.
 2. Expected heteromorphisms per homolog pair, with the two animals reported separately (IMCG P/M, and KikoP/SaanenM, whose haplotypes come from two breeds).
-3. The earlier simulator reused, with the ground truth rebuilt from the corrected four-haplotype tables.
+3. A simulator of C-banding and FISH measurements (six females, 29 autosomes and the X, many metaphases per animal), with the ground truth built from the corrected four-haplotype tables.
 4. A sensitivity analysis: how detection power changes when the unsupported assumptions change. No single sensitivity or specificity is reported as "the" answer.
 5. A public list of assumptions and of what cannot be concluded ([docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md)).
 
@@ -66,14 +66,14 @@ Stage 2 (`data/outputs/robustness_pairs.csv`, `robustness_scenarios.csv`): each 
 
 *Stage 2: does a difference live in the satellite or in the spacer? Points on the diagonal give the same answer with both measures; blue pairs are firm, orange doubtful.*
 
-Stage 3 (`data/outputs/sim_*.csv`, figures `sim_power_curves.png` and `sim_sensitivity_specificity.png`): the earlier simulator, run on 324 scenarios x 300 replicates (K, F, optical resolution, error, metaphases, and the two heteromorphism spreads). Everything below is simulated.
+Stage 3 (`data/outputs/sim_*.csv`, figures `sim_power_curves.png` and `sim_sensitivity_specificity.png`): the simulator, run on 324 scenarios x 300 replicates (K, F, optical resolution, error, metaphases, and the two heteromorphism spreads). Everything below is simulated.
 - **Resolution and band size decide it; error and number of metaphases barely do.** The median sensitivity goes from 0.44 to 0.46 between 10 and 20 metaphases, and from 0.46 to 0.42 between 10 % and 30 % error. It goes from 0.77 to 0.48 to 0.22 as the resolution goes from 0.1 to 0.25 to 0.4 µm (IMCG-like).
 - **The criterion itself caps sensitivity.** A pair is truly heteromorphic above |ln ratio| 0.18 but is called only above 0.25, so even a perfect measurement misses the true differences in between. The ceiling is 0.88 for the IMCG-like spread and 0.67 for the Kiko x Saanen-like one (analytic, and the simulator reproduces it with a perfect measurement: 0.879 and 0.673). Sensitivity must be read against that ceiling, not against 1.
 - **IMCG-like differences** (sigma 0.40): the best scenario reaches 0.85, which is 0.97 of the ceiling. Sensitivity of at least 0.8 with specificity of at least 0.9 occurs in 20 of 162 scenarios, nearly all at 0.1 µm resolution with 10-20 % error. At 0.25 µm only the largest bands do it (K x F = 0.125), and at 0.4 µm none.
 - **Kiko x Saanen-like differences** (sigma 0.17): the absolute 0.8 is out of reach by design (ceiling 0.67); the best scenario reaches 0.64, which is 0.96 of the ceiling. At least 0.8 of the ceiling with specificity of at least 0.9 occurs in 40 of 162 scenarios. So the criterion would call two thirds of the true differences at best, and only with a fine resolution and large bands.
 - **Specificity** stays between 0.83 and 1.00. With no true heteromorphism it is 0.999 at 10 % error and 20 metaphases, and 0.895 at 30 % error and 10 metaphases.
 - **Bands that cannot be measured** are the main loss. In the middle scenario (K 0.03, F 1.5, 0.25 µm, 20 % error, 20 metaphases) only 62-65 % of the bands are measurable, with sensitivity 0.50 (IMCG-like) and 0.28 (Kiko x Saanen-like), specificity 0.94-0.95.
-- **Concordance with the sequence** (Spearman across the 30 chromosomes): the C-band reaches a median of 0.29 against a ceiling of 0.32; FISH reaches 0.56 for SatI, 0.43 for SatII and 0.63 for SatIII (this depends on the assumed probe gains). The ceiling is lower than the earlier 0.49 because the block lengths of T2T correlate only 0.33 with the four-haplotype consensus: the rank of the blocks is not well conserved between animals.
+- **Concordance with the sequence** (Spearman across the 30 chromosomes): the C-band reaches a median of 0.29 against a ceiling of 0.32; FISH reaches 0.56 for SatI, 0.43 for SatII and 0.63 for SatIII (this depends on the assumed probe gains). The ceiling is low because the block lengths of T2T correlate only 0.33 with the four-haplotype consensus: the rank of the blocks is not well conserved between animals.
 - **The slope** of the C-band against remaining length has a bias between -0.20 and +0.27 depending on the scenario, so it is not interpreted here.
 - **The ground truth matters little.** Removing the doubtful blocks and taking the spread from all usable pairs moves sensitivity by at most 0.02 and specificity by less than 0.01 in the middle scenario (`sim_sensitivity_truth.csv`).
 
