@@ -1,0 +1,60 @@
+pair,comparison,chr,kind,usable,doubtful,d_block,abs_diff_block_Mb,class_block,d_sat,abs_diff_sat_Mb,bigger_block,bigger_sat,min_sat_frac,class_sat,reason,status
+IMCG P / M,within IMCG,CHI1,autosome,True,False,0.0732,0.6639,small,0.0536,0.3787,M,M,0.771,small,,firm
+IMCG P / M,within IMCG,CHI2,autosome,False,False,0.5424,3.6344,excluded,0.5022,2.6517,M,M,0.7736,excluded,"excluded: P CHI2: gap/incomplete, M CHI2: gap/incomplete",excluded
+IMCG P / M,within IMCG,CHI3,autosome,True,False,0.1169,1.1269,small,0.0485,0.313,P,P,0.6475,small,,firm
+IMCG P / M,within IMCG,CHI4,autosome,False,False,0.3219,1.6836,excluded,0.3679,1.5474,M,M,0.7848,excluded,excluded: P CHI4: gap/incomplete,excluded
+IMCG P / M,within IMCG,CHI5,autosome,True,False,0.1482,1.1251,small,0.384,1.7175,M,M,0.5208,moderate,block 0.15 vs satellite only 0.38,doubtful
+IMCG P / M,within IMCG,CHI6,autosome,True,False,0.0461,0.3338,small,0.1403,0.6469,P,P,0.6078,small,,firm
+IMCG P / M,within IMCG,CHI7,autosome,False,False,1.3461,4.1385,excluded,3.0265,2.9419,P,P,0.103,excluded,excluded: M CHI7: low_satellite,excluded
+IMCG P / M,within IMCG,CHI8,autosome,True,False,0.3616,2.2123,moderate,0.3451,1.6791,P,P,0.7891,moderate,,firm
+IMCG P / M,within IMCG,CHI9,autosome,False,False,0.0924,0.4797,excluded,1.8547,3.6118,P,P,0.1352,excluded,excluded: M CHI9: low_satellite,excluded
+IMCG P / M,within IMCG,CHI10,autosome,False,False,0.1772,1.4372,excluded,0.1097,0.6592,P,P,0.7169,excluded,"excluded: P CHI10: gap/incomplete, M CHI10: gap/incomplete",excluded
+IMCG P / M,within IMCG,CHI11,autosome,False,False,0.3362,2.5842,excluded,0.3486,2.1272,M,M,0.7886,excluded,excluded: P CHI11: gap/incomplete,excluded
+IMCG P / M,within IMCG,CHI12,autosome,True,False,1.3699,8.5375,large,1.3041,5.8862,P,P,0.7058,large,,firm
+IMCG P / M,within IMCG,CHI13,autosome,True,False,0.8337,4.2975,large,0.839,3.4738,M,M,0.8008,large,,firm
+IMCG P / M,within IMCG,CHI14,autosome,True,False,0.4257,2.9046,moderate,0.2757,1.4231,P,P,0.7048,moderate,,firm
+IMCG P / M,within IMCG,CHI15,autosome,True,False,0.3803,3.0428,moderate,0.4209,2.2044,P,P,0.6406,moderate,,firm
+IMCG P / M,within IMCG,CHI16,autosome,True,False,0.84,4.7119,large,0.8139,3.6303,M,M,0.7863,large,,firm
+IMCG P / M,within IMCG,CHI17,autosome,False,False,0.5576,5.0865,excluded,0.5528,3.1908,P,P,0.6314,excluded,excluded: P CHI17: gap/incomplete,excluded
+IMCG P / M,within IMCG,CHI18,autosome,True,False,0.1358,0.8306,small,0.1537,0.5946,P,P,0.6266,small,,firm
+IMCG P / M,within IMCG,CHI19,autosome,True,False,0.5315,3.625,large,0.3754,1.7624,P,P,0.6405,moderate,,firm
+IMCG P / M,within IMCG,CHI20,autosome,False,False,0.082,0.6868,excluded,0.0207,0.1292,P,M,0.7085,excluded,excluded: M CHI20: gap/incomplete,excluded
+IMCG P / M,within IMCG,CHI21,autosome,True,False,2.5049,8.9871,large,2.4863,4.0111,P,P,0.4471,large,,firm
+IMCG P / M,within IMCG,CHI22,autosome,False,False,0.5389,3.3187,excluded,0.5752,2.8927,P,P,0.8006,excluded,excluded: M CHI22: gap/incomplete,excluded
+IMCG P / M,within IMCG,CHI23,autosome,False,False,0.1703,0.6729,excluded,0.2253,0.7517,M,M,0.8205,excluded,"excluded: P CHI23: gap/incomplete, M CHI23: gap/incomplete",excluded
+IMCG P / M,within IMCG,CHI24,autosome,True,False,0.4681,3.2227,moderate,0.615,2.6549,P,P,0.5789,large,,firm
+IMCG P / M,within IMCG,CHI25,autosome,True,False,0.3423,2.4378,moderate,0.3528,1.8006,M,M,0.7127,moderate,,firm
+IMCG P / M,within IMCG,CHI26,autosome,True,False,0.2994,1.1747,moderate,0.3639,0.9897,P,P,0.6699,moderate,,firm
+IMCG P / M,within IMCG,CHI27,autosome,False,False,0.2929,2.3794,excluded,0.2963,1.8633,P,P,0.7729,excluded,excluded: P CHI27: gap/incomplete,excluded
+IMCG P / M,within IMCG,CHI28,autosome,False,False,3.1174,5.3535,excluded,3.3076,4.1928,M,M,0.6423,excluded,excluded: P CHI28: gap/incomplete,excluded
+IMCG P / M,within IMCG,CHI29,autosome,False,False,0.7508,2.24,excluded,2.0101,2.6592,P,P,0.2055,excluded,"excluded: P CHI29: gap/incomplete, M CHI29: low_satellite",excluded
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI1,autosome,True,False,0.1235,0.8952,small,0.305,1.6027,KikoP,KikoP,0.6598,moderate,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI2,autosome,True,False,0.1006,0.6787,small,0.0923,0.406,KikoP,KikoP,0.6493,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI3,autosome,True,False,0.0471,0.4585,small,0.2699,1.6786,KikoP,KikoP,0.5705,moderate,block 0.05 vs satellite only 0.27,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI4,autosome,True,False,0.1658,1.017,small,0.2172,1.0727,KikoP,KikoP,0.7841,moderate,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI5,autosome,False,False,0.4176,5.1107,excluded,0.3422,2.8052,SaanenM,SaanenM,0.6466,excluded,excluded: SaanenM CHI5: gap/incomplete,excluded
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI6,autosome,True,False,0.1383,1.2737,small,0.5165,2.9988,KikoP,KikoP,0.5164,large,block 0.14 vs satellite only 0.52,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI7,autosome,True,True,0.386,3.8692,moderate,0.4473,3.0964,SaanenM,SaanenM,0.6682,moderate,doubtful block,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI8,autosome,True,False,0.31,2.3914,moderate,0.3311,2.0249,SaanenM,SaanenM,0.7841,moderate,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI9,autosome,True,False,0.1651,1.5272,small,0.5711,3.2513,KikoP,KikoP,0.496,large,block 0.17 vs satellite only 0.57,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI10,autosome,True,False,0.3649,4.0595,moderate,0.2145,1.6513,SaanenM,SaanenM,0.6441,moderate,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI11,autosome,True,False,0.1809,1.7473,moderate,0.1743,1.3498,SaanenM,SaanenM,0.7992,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI12,autosome,True,False,0.0985,0.9519,small,0.0298,0.2298,SaanenM,SaanenM,0.7708,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI13,autosome,True,False,0.1659,1.0762,small,0.0613,0.2814,KikoP,SaanenM,0.6328,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI14,autosome,True,True,0.5489,4.6932,large,0.6555,4.3092,KikoP,KikoP,0.7252,large,doubtful block,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI15,autosome,True,True,0.3986,3.7435,moderate,0.4506,2.4956,SaanenM,SaanenM,0.5735,moderate,doubtful block,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI16,autosome,True,False,0.0268,0.2588,small,0.1294,1.0058,SaanenM,SaanenM,0.7654,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI17,autosome,True,False,0.0824,0.7331,small,0.1062,0.5652,KikoP,KikoP,0.5908,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI18,autosome,True,False,0.1609,1.0885,small,0.3994,1.6852,KikoP,SaanenM,0.4687,moderate,block 0.16 vs satellite only 0.40; larger haplotype changes with satellite only,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI19,autosome,True,False,0.2641,2.4307,moderate,0.039,0.2634,KikoP,KikoP,0.6578,small,block 0.26 vs satellite only 0.04,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI20,autosome,True,False,0.0315,0.2546,small,0.3404,1.7888,SaanenM,KikoP,0.5378,moderate,block 0.03 vs satellite only 0.34,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI21,autosome,True,False,0.2374,1.742,moderate,0.1401,0.5731,KikoP,KikoP,0.532,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI22,autosome,True,False,0.0754,0.5352,small,0.1121,0.6324,KikoP,KikoP,0.7809,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI23,autosome,True,False,0.0046,0.0278,small,0.0857,0.4056,KikoP,SaanenM,0.7421,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI24,autosome,True,False,0.1567,1.253,small,0.3802,2.2163,KikoP,KikoP,0.6486,moderate,block 0.16 vs satellite only 0.38,doubtful
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI25,autosome,True,False,0.4949,3.5141,moderate,0.3214,1.6682,SaanenM,SaanenM,0.6741,moderate,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI26,autosome,True,False,0.2899,1.2921,moderate,0.3817,1.035,KikoP,KikoP,0.5796,moderate,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI27,autosome,True,False,0.0243,0.1491,small,0.0287,0.1372,SaanenM,SaanenM,0.7759,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI28,autosome,True,False,0.164,0.8558,small,0.0992,0.3912,SaanenM,SaanenM,0.7317,small,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHI29,autosome,True,False,0.2637,1.6121,moderate,0.4318,1.7077,SaanenM,SaanenM,0.5919,moderate,,firm
+KikoP / SaanenM,between breeds (Kiko x Saanen),CHIX,X,True,False,0.2451,0.21,moderate,0.4055,0.243,SaanenM,SaanenM,0.6426,moderate,,firm

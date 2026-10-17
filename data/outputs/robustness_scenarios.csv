@@ -1,0 +1,11 @@
+pair,scenario,n,median_d,median_abs_diff_Mb,small,moderate,large
+IMCG P / M,A. baseline (block length),16,0.371,2.671,5,6,5
+IMCG P / M,B. without doubtful blocks,16,0.371,2.671,5,6,5
+IMCG P / M,C. satellite only (sat_bp),16,0.37,1.74,4,7,5
+IMCG P / M,"D. satellite only, without doubtful",16,0.37,1.74,4,7,5
+IMCG P / M,E. firm pairs only (block length),15,0.38,2.905,4,6,5
+KikoP / SaanenM,A. baseline (block length),29,0.165,1.088,17,11,1
+KikoP / SaanenM,B. without doubtful blocks,26,0.162,1.047,17,9,0
+KikoP / SaanenM,C. satellite only (sat_bp),29,0.27,1.35,12,14,3
+KikoP / SaanenM,"D. satellite only, without doubtful",26,0.216,1.054,12,12,2
+KikoP / SaanenM,E. firm pairs only (block length),19,0.166,0.952,11,8,0

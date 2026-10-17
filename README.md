@@ -42,12 +42,17 @@ Frozen copies of six small tables from the sequence repository live in `data/inp
 
 ## Status
 
-Stage 1 (inference) is done and executed; stages 2 (robustness) and 3 (simulation) are headings only.
+Stages 1 (inference) and 2 (robustness) are done and executed; stage 3 (simulation) is a heading only.
 
 Stage 1, from the frozen tables (`data/outputs/karyotype_inferred.csv`, `expected_heteromorphisms.csv`):
 - All 29 autosomes and the X are terminal (acrocentric) in every haplotype (arm ratio above 10). The X is the only chromosome with a real short arm: its satellite block starts 7.2 Mb from the end, and its centromeric index is 0.053.
 - Expected heteromorphism, as the median |ln ratio| of the block between the two homologs: 0.37 in IMCG P/M (16 usable pairs) and 0.17 in KikoP/SaanenM (29 usable pairs, labelled "between breeds"). In the rest of the chromosome the same measure is about 0.001-0.002.
 - The IMCG pairs are few because 13 of the 29 are incomplete or `low_satellite` in at least one haplotype.
+
+Stage 2 (`data/outputs/robustness_pairs.csv`, `robustness_scenarios.csv`): each usable pair is labelled **firm** or **doubtful** (a doubtful block, or the block length and the satellite-only length disagree by more than 0.2 in |ln ratio|, or the larger haplotype flips).
+- IMCG P/M: 15 firm and 1 doubtful. The difference is in the satellite, not in the spacer (Spearman 0.88 between the two measures; the larger haplotype never changes). The median |ln ratio| is 0.37 with the block and 0.37 with the satellite only.
+- KikoP/SaanenM: 19 firm and 10 doubtful. The two measures agree much less (Spearman 0.49), and with the satellite only the median difference is larger (0.27 against 0.17), so the non-satellite spacer partly hides differences. Removing the three doubtful blocks barely moves the block-length median (0.16).
+- Consequence for stage 3: the ground truth takes the 34 firm pairs; the doubtful ones enter only in a sensitivity scenario. The "size class" of a pair near a class boundary is not stable, so it is not used as a truth label.
 
 ## Repository structure
 
