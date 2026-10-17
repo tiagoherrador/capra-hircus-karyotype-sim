@@ -3,9 +3,9 @@
 
 > This is a personal portfolio and practice project, not a peer-reviewed article. Every cytogenetic measurement in it is simulated. I built it with the help of an AI coding assistant (Claude Code), and I reviewed the decisions and the results.
 
-In my companion repository, [capra-hircus-centromeres](https://github.com/tiagoherrador/capra-hircus-centromeres) (private), I measured the satellite DNA blocks at goat centromeres using public genome assemblies. One thing stood out: the two copies of a chromosome often differ a lot in that block. Here I take those tables as they are and ask a simple question: if those differences were real, could a microscope see them? I don't repeat any of the sequence work here (downloads, satellite annotation, scaling statistics). It all lives in the other repository.
+## What this project is
 
-## The question
+In my companion repository, [capra-hircus-centromeres](https://github.com/tiagoherrador/capra-hircus-centromeres) (private), I measured the satellite DNA blocks at goat centromeres using public genome assemblies. One thing stood out: the two copies of a chromosome often differ a lot in that block. Here I take those tables as they are and ask a simple question: if those differences were real, could a microscope see them? I don't repeat any of the sequence work here (downloads, satellite annotation, scaling statistics). It all lives in the other repository.
 
 > If the differences between the two copies of a chromosome that I see in the sequence were real, could a cytogenetic design (C-banding or FISH) detect them? With how many cells, and with what measurement quality?
 
@@ -13,31 +13,36 @@ This is a question about experimental design, so I answer it by simulation, in t
 
 Along the way I wanted to end up with an inferred karyotype and an idiogram with clear inclusion rules, and with the expected differences for each pair, reporting the two animals separately: the reference animal, whose haplotypes I call P and M, and a Kiko × Saanen female, whose haplotypes come from two breeds. I also wanted a simulator of C-banding and FISH measurements built on the corrected tables of the four haplotypes, a sensitivity analysis that shows how the results move when the weakest assumptions change (instead of one single answer), and a public list of those assumptions in [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md).
 
-## What this project does not do
+## The short version
 
-I can't tell you which C-band a real goat would show, because there are no public cytogenetic measurements of this animal. I also don't measure the functional centromere (CENP-A): my "centromere" is the satellite block from the sequence repository, which is an operational definition. The functional domain may be much steadier between haplotypes than the satellite array, so a big difference in the array doesn't mean a big difference in the functional centromere.
+| Question | What I found |
+|---|---|
+| What does the sequence predict? | In all 29 autosomes the satellite block starts at the very end of the chromosome, so there is no short arm I can resolve; the X has a real short arm of about 7 Mb. The two copies of a chromosome differ in block size by a median \|ln ratio\| of **0.37** in the reference animal and **0.17** in the Kiko × Saanen female, against about 0.001 in the rest of the chromosome. |
+| How far can I trust that prediction? | **Well in the reference animal** (15 of 16 pairs firm), **less in the Kiko × Saanen female** (19 firm, 10 doubtful), where the non-satellite spacer seems to hide part of the differences. |
+| Could a microscope see those differences? | **Only with a fine resolution and large bands.** For differences like the reference animal's, sensitivity ≥ 0.8 with specificity ≥ 0.9 happens in 20 of 162 scenarios, nearly all at 0.1 µm; at 0.4 µm, in none. For the Kiko × Saanen female, at most two thirds of the true differences could be called, by design. |
+| What matters most for the design? | **The microscope's resolution and the size of the band.** The number of cells and the measurement error hardly change the result. |
+| Is any of it measured? | **No.** Every cytogenetic number is simulated, and the chromosome scale, band factor and optical limit have not been checked against real goat measurements. |
 
-I don't settle whether the goat chromosomes are acrocentric or telocentric either. The literature calls them acrocentric, meaning they have a very short arm. What the sequence shows is that the satellite block starts less than 0.05 Mb from the end of every autosome, so there is no short arm of ordinary DNA that I can resolve. I don't measure where the centromere sits inside the block, so the centromeric index, the arm ratio and the Levan class are all given as "if the centromere is at the middle of the block", which is an assumption. The X is the one case with a real short arm.
+## What the analysis gives you
 
-Finally, sensitivity, specificity and power describe the simulated design under the assumptions I state. They are not statements about the real world.
-
-## The main caution
-
-I take the optical limit of a light microscope to be about 0.25 µm. That is a rough figure from Abbe's formula (0.61 λ / NA, with λ = 550 nm and NA = 1.4), calculated by the AI assistant. I haven't checked it against real C-banding practice, so I treat it as a parameter. Under some of my assumptions the typical difference between two copies of a chromosome is close to that limit or below it. That is why I vary the optical resolution explicitly, together with the chromosome scale (K, µm of chromosome per Mb) and the band-to-block factor (F, how many times the block the band looks). I found no goat-specific value for K or F ([assumptions](docs/ASSUMPTIONS.md)).
-
-## Inputs
-
-I keep frozen copies of six small tables from the sequence repository in `data/input_from_repo1/`, together with the commit they come from and their SHA-256 checksums in `SOURCE.md`. The notebook verifies them before reading. I don't use the blocks flagged `low_satellite` (M-CHI7, M-CHI9, M-CHI29) as ground truth, and I leave out Saanen CHI5.
-
-## What I found
-
-All three stages are done and executed. What is still missing is a check of K, F and the optical limit against real goat cytogenetic measurements, which would need data I don't have.
-
-### Stage 1: what the sequence predicts
+An inferred karyotype with an idiogram, the expected difference for each chromosome pair (`data/outputs/karyotype_inferred.csv`, `expected_heteromorphisms.csv`), and a simulator of C-banding and FISH measurements with its power tables (`data/outputs/sim_*.csv`).
 
 ![Idiogram of T2T-goat2.0](figures/idiogram_T2T.png)
 
 *Idiogram of the 30 chromosomes of T2T-goat2.0 (ordered by size, X in red). The shaded part is the satellite block, my operational centromere. The white dot is the assumed centromere, which I place at the middle of the block because the sequence doesn't locate it. The right panel zooms in on the first 15 Mb of CHI1 and of the X: the block of an autosome starts right at the chromosome end, while the X has a short arm of ordinary DNA of about 7 Mb. It is a map of where heterochromatin could be, not a prediction of a real band.*
+
+## Following the analysis step by step
+
+All three stages are done and executed. What is still missing is a check of the chromosome scale (K), the band factor (F) and the optical limit against real goat cytogenetic measurements, which would need data I don't have.
+
+<details>
+<summary><b>Show the four steps</b> (inputs, what the sequence predicts, how far I trust it, what a microscope could detect)</summary>
+
+### 1. Inputs
+
+I keep frozen copies of six small tables from the sequence repository in `data/input_from_repo1/`, together with the commit they come from and their SHA-256 checksums in `SOURCE.md`. The notebook verifies them before reading. I don't use the blocks flagged `low_satellite` (M-CHI7, M-CHI9, M-CHI29) as ground truth, and I leave out Saanen CHI5.
+
+### 2. Stage 1: what the sequence predicts
 
 In all 29 autosomes of every haplotype the satellite block starts less than 0.05 Mb from the end of the chromosome. If I put the centromere in the middle of the block, the arm ratio is above 10 and the Levan class is "terminal", which fits both acrocentric and telocentric; where the centromere really sits inside the block, I don't know. The X is the only chromosome with a real short arm: about 7 Mb of euchromatin (the pseudoautosomal region) before its block, which starts 7.2 Mb from the end.
 
@@ -47,7 +52,7 @@ For the differences between the two copies of each chromosome, I use the median 
 
 *Expected heteromorphism per chromosome, as |ln(block a / block b)|, for the two pairs of haplotypes. Circled points are doubtful blocks; crosses are excluded or not comparable pairs.*
 
-### Stage 2: how far I trust it
+### 3. Stage 2: how far I trust it
 
 I label each usable pair **firm** or **doubtful**. A pair is doubtful if it includes a doubtful block, if the block length and the satellite-only length disagree by more than 0.2 in |ln ratio|, or if the larger haplotype flips when I count only satellite (tables in `data/outputs/robustness_pairs.csv` and `robustness_scenarios.csv`).
 
@@ -59,7 +64,7 @@ For the simulation, this means I estimate the spread of the true difference from
 
 *Does a difference live in the satellite or in the spacer? Points on the diagonal give the same answer with both measures; blue pairs are firm, orange ones doubtful.*
 
-### Stage 3: what a microscope could detect
+### 4. Stage 3: what a microscope could detect
 
 Everything in this section is simulated. I ran the simulator on 324 scenarios with 300 replicates each, varying K, F, optical resolution, measurement error, number of metaphases and the two heteromorphism spreads. The tables are in `data/outputs/sim_*.csv`.
 
@@ -81,7 +86,29 @@ When I compare the measurement with the sequence across the 30 chromosomes (Spea
 
 *Simulated: sensitivity, specificity and share of measurable bands over band size and optical resolution (error 20 %, 20 metaphases). Sensitivity must be read against its ceiling of 0.88 (reference-animal-like) and 0.67 (Kiko × Saanen-like).*
 
-## Repository structure
+</details>
+
+## Things to keep in mind
+
+I can't tell you which C-band a real goat would show, because there are no public cytogenetic measurements of this animal. I also don't measure the functional centromere (CENP-A): my "centromere" is the satellite block from the sequence repository, which is an operational definition. The functional domain may be much steadier between haplotypes than the satellite array, so a big difference in the array doesn't mean a big difference in the functional centromere.
+
+I don't settle whether the goat chromosomes are acrocentric or telocentric either. The literature calls them acrocentric, meaning they have a very short arm. What the sequence shows is that the satellite block starts less than 0.05 Mb from the end of every autosome, so there is no short arm of ordinary DNA that I can resolve. I don't measure where the centromere sits inside the block, so the centromeric index, the arm ratio and the Levan class are all given as "if the centromere is at the middle of the block", which is an assumption. The X is the one case with a real short arm.
+
+Finally, sensitivity, specificity and power describe the simulated design under the assumptions I state. They are not statements about the real world.
+
+**The main caution: the optical limit.** I take the optical limit of a light microscope to be about 0.25 µm. That is a rough figure from Abbe's formula (0.61 λ / NA, with λ = 550 nm and NA = 1.4), calculated by the AI assistant. I haven't checked it against real C-banding practice, so I treat it as a parameter. Under some of my assumptions the typical difference between two copies of a chromosome is close to that limit or below it. That is why I vary the optical resolution explicitly, together with the chromosome scale (K, µm of chromosome per Mb) and the band-to-block factor (F, how many times the block the band looks). I found no goat-specific value for K or F ([assumptions](docs/ASSUMPTIONS.md)).
+
+## Try it yourself
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+jupyter lab notebooks/01_karyotype_and_simulation.ipynb
+```
+
+You don't need any downloads or external tools. The full run takes about 2.5 minutes on my Apple-silicon laptop (324 scenarios × 300 replicates). For a quick test, set `CAPRA_NREP=20` before starting Jupyter.
+
+### Repository structure
 
 ```
 ├── notebooks/01_karyotype_and_simulation.ipynb   the three stages
@@ -91,16 +118,6 @@ When I compare the measurement with the sequence across the 30 chromosomes (Spea
 ├── docs/ASSUMPTIONS.md                           every assumption of the simulation
 ├── LICENSE · LICENSE-CC-BY-4.0.txt · CITATION.cff · requirements.txt
 ```
-
-## Reproducibility
-
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-jupyter lab notebooks/01_karyotype_and_simulation.ipynb
-```
-
-You don't need any downloads or external tools. The full run takes about 2.5 minutes on my Apple-silicon laptop (324 scenarios × 300 replicates). For a quick test, set `CAPRA_NREP=20` before starting Jupyter.
 
 ## Licence
 
