@@ -42,17 +42,29 @@ Frozen copies of six small tables from the sequence repository live in `data/inp
 
 ## Status
 
-All three stages are done and executed. Not yet done: a README-level summary figure, and a check of K, F and the optical limit against goat cytogenetic measurements, which would need real data.
+All three stages are done and executed. Not yet done: a check of K, F and the optical limit against goat cytogenetic measurements, which would need real data.
+
+![Idiogram of T2T-goat2.0](figures/idiogram_T2T.png)
+
+*Idiogram of the 30 chromosomes of T2T-goat2.0 (ordered by size, X in red): the shaded part is the satellite block, the operational centromere. It marks where heterochromatin could be, not a prediction of a real band.*
 
 Stage 1, from the frozen tables (`data/outputs/karyotype_inferred.csv`, `expected_heteromorphisms.csv`):
 - All 29 autosomes and the X are terminal (acrocentric) in every haplotype (arm ratio above 10). The X is the only chromosome with a real short arm: its satellite block starts 7.2 Mb from the end, and its centromeric index is 0.053.
 - Expected heteromorphism, as the median |ln ratio| of the block between the two homologs: 0.37 in IMCG P/M (16 usable pairs) and 0.17 in KikoP/SaanenM (29 usable pairs, labelled "between breeds"). In the rest of the chromosome the same measure is about 0.001-0.002.
 - The IMCG pairs are few because 13 of the 29 are incomplete or `low_satellite` in at least one haplotype.
 
+![Expected heteromorphism per homolog pair](figures/expected_heteromorphisms.png)
+
+*Expected heteromorphism per chromosome, as |ln(block a / block b)|, for the two pairs of haplotypes. Circled points are doubtful blocks; crosses are excluded or not comparable pairs.*
+
 Stage 2 (`data/outputs/robustness_pairs.csv`, `robustness_scenarios.csv`): each usable pair is labelled **firm** or **doubtful** (a doubtful block, or the block length and the satellite-only length disagree by more than 0.2 in |ln ratio|, or the larger haplotype flips).
 - IMCG P/M: 15 firm and 1 doubtful. The difference is in the satellite, not in the spacer (Spearman 0.88 between the two measures; the larger haplotype never changes). The median |ln ratio| is 0.37 with the block and 0.37 with the satellite only.
 - KikoP/SaanenM: 19 firm and 10 doubtful. The two measures agree much less (Spearman 0.49), and with the satellite only the median difference is larger (0.27 against 0.17), which suggests that the non-satellite spacer partly hides differences. Removing the three doubtful blocks barely moves the block-length median (0.16).
 - Consequence for stage 3: the spread of the true difference comes from the 34 firm pairs; the doubtful ones enter only in a sensitivity run. The "size class" of a pair near a class boundary is not stable, so it is not used as a truth label.
+
+![Block length against satellite only](figures/robustness_block_vs_satellite.png)
+
+*Stage 2: does a difference live in the satellite or in the spacer? Points on the diagonal give the same answer with both measures; blue pairs are firm, orange doubtful.*
 
 Stage 3 (`data/outputs/sim_*.csv`, figures `sim_power_curves.png` and `sim_sensitivity_specificity.png`): the earlier simulator, run on 324 scenarios x 300 replicates (K, F, optical resolution, error, metaphases, and the two heteromorphism spreads). Everything below is simulated.
 - **Resolution and band size decide it; error and number of metaphases barely do.** The median sensitivity goes from 0.44 to 0.46 between 10 and 20 metaphases, and from 0.46 to 0.42 between 10 % and 30 % error. It goes from 0.77 to 0.48 to 0.22 as the resolution goes from 0.1 to 0.25 to 0.4 µm (IMCG-like).
@@ -64,6 +76,14 @@ Stage 3 (`data/outputs/sim_*.csv`, figures `sim_power_curves.png` and `sim_sensi
 - **Concordance with the sequence** (Spearman across the 30 chromosomes): the C-band reaches a median of 0.29 against a ceiling of 0.32; FISH reaches 0.56 for SatI, 0.43 for SatII and 0.63 for SatIII (this depends on the assumed probe gains). The ceiling is lower than the earlier 0.49 because the block lengths of T2T correlate only 0.33 with the four-haplotype consensus: the rank of the blocks is not well conserved between animals.
 - **The slope** of the C-band against remaining length has a bias between -0.20 and +0.27 depending on the scenario, so it is not interpreted here.
 - **The ground truth matters little.** Removing the doubtful blocks and taking the spread from all usable pairs moves sensitivity by at most 0.02 and specificity by less than 0.01 in the middle scenario (`sim_sensitivity_truth.csv`).
+
+![Power to call a heteromorphism](figures/sim_power_curves.png)
+
+*Stage 3, simulated: share of homolog pairs called heteromorphic, by the size of the true difference, for each band size per Mb (K x F) and optical resolution.*
+
+![Sensitivity, specificity and measurable bands](figures/sim_sensitivity_specificity.png)
+
+*Stage 3, simulated: sensitivity, specificity and share of measurable bands over band size and optical resolution (error 20 %, 20 metaphases). Sensitivity must be read against its ceiling of 0.88 (IMCG-like) and 0.67 (Kiko x Saanen-like).*
 
 ## Repository structure
 
